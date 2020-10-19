@@ -1,0 +1,29 @@
+  <mdb-card
+    style="background-image: url('assets/img/library.jpg');"
+    class="card-image mb-3 mx-2"
+  >
+    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+      <div>
+        <h5 class="indigo-text">
+          <mdb-icon fas icon="code"></mdb-icon>
+          <b>{{repository.language}}</b>
+        </h5>
+        <h3 class="card-title pt-2 text-height">
+          <strong>{{repository.name}}</strong>
+        </h3>
+
+        <p class="text-height">
+          {{repository.description | truncate: 80}}
+        </p>
+
+        <p class="text-height">
+          Created by: <b class="indigo-text">{{repository.owner.login}}</b> at {{repository.created_at | date:"dd/MM/yyyy"}}
+        </p> 
+
+        <a mdbBtn [href]="repository.html_url" color="purple" target="_blank" class="waves-light" mdbWavesEffect>
+          <mdb-icon far icon="clone" class="left"></mdb-icon>
+          View repository</a
+        >
+      </div>
+    </div>
+  </mdb-card>

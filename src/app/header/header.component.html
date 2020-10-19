@@ -1,0 +1,27 @@
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color-dark ie-nav fixed-top github-nav " 
+    [containerInside]="false">
+
+    <mdb-navbar-brand>
+        <mdb-icon fab icon="github" size="2x" class="mr-1 white-text pr-3"></mdb-icon>
+        <a class="navbar-brand" href="#search-area">Github Filters</a>
+    </mdb-navbar-brand>
+  
+    <links>  
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-light" href="#users-area" mdbWavesEffect>
+              <mdb-icon fas icon="users"></mdb-icon> Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" href="#repositories-area" mdbWavesEffect>
+              <mdb-icon fas icon="book-open"></mdb-icon> Repositories</a>
+        </li>
+        <li class="nav-item" dropdown>
+          <a class="nav-link waves-light" href="#issues-area" mdbWavesEffect>
+            <mdb-icon fas icon="exclamation-circle"></mdb-icon> Issues</a>
+        </li>  
+      </ul>
+    </links>
+  
+</mdb-navbar>

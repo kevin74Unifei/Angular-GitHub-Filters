@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-end">
+    <ul class="pagination pagination-circle pg-purple">
+        <li class="page-item" 
+            [ngClass]="{'disabled': active === firstPage}" 
+            (click)="changePagination(firstPage)">
+            <a class="page-link" mdbWavesEffect>First</a>
+        </li>
+
+        <li class="page-item" 
+            [ngClass]="{'disabled': active === firstPage}"
+            (click)="changePagination(paginationValues[0] - 1 )">
+            <a class="page-link" aria-label="Previous" mdbWavesEffect>
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+            </a>
+        </li>
+
+        <li 
+            *ngFor="let pagination of paginationValues"
+            class="page-item active" 
+            [ngClass]="{'active': active === pagination}"
+            (click)="changePagination(pagination)">
+            <a class="page-link" mdbWavesEffect>{{pagination}}</a>
+        </li>
+
+        <li class="page-item" 
+            [ngClass]="{'disabled': active === lastPage}" 
+            (click)="changePagination(paginationValues[paginationValues.length-1] + 1)">
+            <a class="page-link" aria-label="Next" mdbWavesEffect>
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+            </a>
+        </li>
+
+        <li class="page-item" [ngClass]="{'disabled': active === lastPage}" (click)="changePagination(lastPage)">
+            <a class="page-link" mdbWavesEffect>Last</a>
+        </li>
+    </ul>
+</div>

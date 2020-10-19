@@ -1,0 +1,24 @@
+
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-5">
+      <img [src]="user.avatar_url" class="card-img" alt="user avatar"/>
+    </div>
+    <div class="col-md-7 white-text bg-dark">
+      <div class="card-body">
+        <h5 class="card-title">
+          <mdb-icon *ngIf="user.type == 'User'; else organization" far icon="user"></mdb-icon>
+          <ng-template #organization>
+            <mdb-icon far icon="building"></mdb-icon>
+          </ng-template>
+          {{user.login |truncate: 15}}  
+        </h5>
+
+        <hr class="hr-light">
+        <a mdbBtn [href]="user.html_url" color="purple" target="_blank" class="waves-light" mdbWavesEffect>
+          <mdb-icon far icon="clone" class="left"></mdb-icon>
+          View User</a>
+      </div>
+    </div>
+  </div>
+</div>

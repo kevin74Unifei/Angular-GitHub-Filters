@@ -1,0 +1,24 @@
+
+<mdb-card
+  style="background-image: url('assets/img/black-wall.jpg')"
+  class="card-image mb-3 mx-2"
+>
+  <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+    <div>
+      <h5 class="indigo-text">
+        <mdb-icon *ngIf="issue.state == 'open'; else organization" fas icon="lock-open"></mdb-icon>
+        <ng-template #organization>
+          <mdb-icon fas icon="lock"></mdb-icon>>
+        </ng-template>
+        <b>{{issue.state}}</b>            
+      </h5>
+      <h3 class="card-title pt-2" style="height: 3em;"><strong>{{issue.title |truncate: 50}}</strong></h3>
+      <p class="text-height" style="padding-top: 10px;">
+        Created by: <b class="indigo-text">{{issue.user.login}}</b> at {{issue.created_at | date:"dd/MM/yyyy"}}
+      </p> 
+      <a mdbBtn [href]="issue.html_url" color="purple" target="_blank" class="waves-light" mdbWavesEffect>
+        <mdb-icon far icon="clone" class="left"></mdb-icon>
+        View Issue</a>
+    </div>
+  </div>
+</mdb-card>
