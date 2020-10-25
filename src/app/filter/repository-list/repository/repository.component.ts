@@ -9,10 +9,16 @@ import { Repository } from './repository.model';
 export class RepositoryComponent implements OnInit {
 
   @Input() repository: Repository;
-
+  photo: string; 
   constructor() { }
 
   ngOnInit(): void {
+    this.getRandomPhoto();
+  }
+
+  getRandomPhoto(){
+    var number = Math.floor((Math.random() * 12) + 1);
+    this.photo = 'assets/img/' + number + '.jpg';
   }
 
 }

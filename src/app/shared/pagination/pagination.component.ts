@@ -9,10 +9,10 @@ export class PaginationComponent implements OnChanges {
 
   @Output() currentPage = new EventEmitter<number>();
   @Input() lastPage: number; 
-  
+  @Input() active;
+
   firstPage = 1;
-  paginationValues: number[] = [];
-  active = this.firstPage; 
+  paginationValues: number[] = []; 
 
   constructor() { }
 
@@ -33,7 +33,7 @@ export class PaginationComponent implements OnChanges {
 
   fillPagination(): void{
     this.paginationValues = [];
-
+    
     for(let i = this.active -2; i <= this.active + 2; i++)
       if(i >= this.firstPage && i <= this.lastPage)  
         this.paginationValues.push(i);

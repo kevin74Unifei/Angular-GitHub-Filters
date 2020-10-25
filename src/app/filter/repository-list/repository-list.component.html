@@ -1,0 +1,28 @@
+<div class="row" id="repositories-area">
+    <div class="col-12" *ngIf="error">
+        <div class="alert alert-danger" role="alert">
+            Something went wrong, please try again later!
+        </div>
+    </div>
+    <div class="col-12">
+        <h4>Repositories</h4>
+        <hr>
+    </div>
+    
+    <div class="row" *ngIf="!isRepositorySearch && repositoryPages > 0">
+        <div class="col-sm-12 col-md-6 col-lg-4"
+            *ngFor="let repository of repositories">
+            <app-repository [repository]="repository"></app-repository>
+        </div>
+        <div class="col-12">
+            <app-pagination [active]="currentPage" [lastPage]="repositoryPages" (currentPage)="selectPage($event)"></app-pagination>
+        </div>
+    </div>
+
+    <div *ngIf="!isRepositorySearch && repositoryPages  <= 0" class="col-12 alert alert-light" role="alert">
+        No Matches Found
+    </div>
+    <div class="col text-center" *ngIf="isRepositorySearch">
+        <app-spinner></app-spinner>            
+    </div>
+</div>
