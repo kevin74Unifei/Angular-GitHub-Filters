@@ -17,7 +17,7 @@
 
         <li 
             *ngFor="let pagination of paginationValues"
-            class="page-item active" 
+            class="page-item" 
             [ngClass]="{'active': active === pagination}"
             (click)="changePagination(pagination)">
             <a class="page-link" mdbWavesEffect>{{pagination}}</a>

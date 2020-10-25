@@ -1,5 +1,5 @@
   <mdb-card
-    style="background-image: url('assets/img/library.jpg');"
+    style="background-image: url('{{photo}}');"
     class="card-image mb-3 mx-2"
   >
     <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
@@ -9,7 +9,7 @@
           <b>{{repository.language}}</b>
         </h5>
         <h3 class="card-title pt-2 text-height">
-          <strong>{{repository.name}}</strong>
+          <strong>{{repository.name | truncate: 30}}</strong>
         </h3>
 
         <p class="text-height">

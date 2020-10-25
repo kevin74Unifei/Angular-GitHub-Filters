@@ -1,0 +1,29 @@
+<div class="row" id="users-area">
+    <div class="col-12" *ngIf="error">
+        <div class="alert alert-danger" role="alert">
+            Something went wrong, please try again later!
+        </div>
+    </div>
+    <div class="col-12">
+        <h4>Users</h4>
+        <hr>
+    </div>
+
+    <div class="row" *ngIf="!isUserSearch && userPages > 0">  
+        <div class="col-sm-12 col-md-6 col-lg-4"
+            *ngFor="let user of users">
+            <app-user [user]="user"></app-user>
+        </div>
+
+        <div class="col-12">
+            <app-pagination [active]="currentPage" [lastPage]="userPages" (currentPage)="selectPage($event)"></app-pagination>
+        </div>
+    </div>
+
+    <div *ngIf="!isUserSearch && userPages  <= 0" class="col-12 alert alert-light" role="alert">
+        No Matches Found
+    </div>
+    <div class="col text-center" *ngIf="isUserSearch">
+        <app-spinner></app-spinner>            
+    </div>
+</div>

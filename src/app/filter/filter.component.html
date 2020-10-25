@@ -25,75 +25,9 @@
         </div>
     </form>
     <div *ngIf="isSearched">
-        <div class="row" id="users-area">
-            <div class="col-12">
-                <h4>Users</h4>
-                <hr>
-            </div>
-
-            <div class="row" *ngIf="!isUserSearch && userPages > 0">  
-                <div class="col-sm-12 col-md-6 col-lg-4"
-                    *ngFor="let user of userResult">
-                    <app-user [user]="user"></app-user>
-                </div>
-
-                <div class="col-12">
-                    <app-pagination [lastPage]="userPages" (currentPage)="searchUsers($event)"></app-pagination>
-                </div>
-            </div>
-
-            <div *ngIf="!isUserSearch && userPages  <= 0" class="col-12 alert alert-light" role="alert">
-                No Matches Found
-            </div>
-            <div class="col text-center" *ngIf="isUserSearch">
-                <app-spinner></app-spinner>            
-            </div>
-        </div>
-        <div class="row" id="repositories-area">
-            <div class="col-12">
-                <h4>Repositories</h4>
-                <hr>
-            </div>
-            
-            <div class="row" *ngIf="!isRepositorySearch && repositoryPages > 0">
-                <div class="col-sm-12 col-md-6 col-lg-4"
-                    *ngFor="let repository of repositoryResult">
-                    <app-repository [repository]="repository"></app-repository>
-                </div>
-                <div class="col-12">
-                    <app-pagination [lastPage]="repositoryPages" (currentPage)="searchRepositories($event)"></app-pagination>
-                </div>
-            </div>
-
-            <div *ngIf="!isRepositorySearch && repositoryPages  <= 0" class="col-12 alert alert-light" role="alert">
-                No Matches Found
-            </div>
-            <div class="col text-center" *ngIf="isRepositorySearch">
-                <app-spinner></app-spinner>            
-            </div>
-        </div>
-        <div class="row" id="issues-area">
-            <div class="col-12">
-                <h4>Issues</h4>
-                <hr>
-            </div>
-            <div class="row" *ngIf="!isIssueSearch && issuePages > 0">
-                <div class="col-sm-12 col-md-6 col-lg-4"
-                    *ngFor="let issue of issueResult">
-                    <app-issue [issue]="issue"></app-issue>
-                </div>
-                <div class="col-12">
-                    <app-pagination [lastPage]="issuePages" (currentPage)="searchIssues($event)"></app-pagination>
-                </div>
-            </div>
-
-            <div *ngIf="!isIssueSearch && issuePages  <= 0" class="col-12 alert alert-light" role="alert">
-                No Matches Found
-            </div>
-            <div class="col text-center" *ngIf="isIssueSearch">
-                <app-spinner></app-spinner>            
-            </div>
-        </div>
+        <app-user-list [searchValue]="searchValue"></app-user-list>
+        <app-repository-list [searchValue]="searchValue"></app-repository-list>
+        <app-issue-list [searchValue]="searchValue"></app-issue-list>
     </div>
 </div>
 
